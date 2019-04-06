@@ -1,0 +1,24 @@
+services:
+  _defaults:
+    autowire: true
+    public: false
+
+  Mkk\DhcpBundle\Repository\HostRepository:
+    arguments:
+      $hostsFileUri: "%mkk_dhcp.hosts.file%"
+    public: true
+
+  Mkk\DhcpBundle\Repository\LeaseRepository:
+    arguments:
+      $leasesFileUri: "%mkk_dhcp.leases.file%"
+    public: true
+
+  Mkk\DhcpBundle\Component\Parser\HostParser: ~
+
+  Mkk\DhcpBundle\Component\Parser\LeaseParser: ~
+
+  Mkk\DhcpBundle\Component\Export\ConfigExporter:
+    public: true
+
+  Mkk\DhcpBundle\Component\Export\HostExporter:
+    public: true
