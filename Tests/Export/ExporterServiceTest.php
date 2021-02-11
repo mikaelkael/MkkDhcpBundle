@@ -1,6 +1,6 @@
 <?php
 
-namespace Mkk\DhcpBundle\Tests\Repository;
+namespace Mkk\DhcpBundle\Tests\Export;
 
 use Mkk\DhcpBundle\Component\Export\ConfigExporter;
 use Mkk\DhcpBundle\Component\Export\HostExporter;
