@@ -5,7 +5,7 @@ namespace Mkk\DhcpBundle\Component\Host;
 class Host
 {
     /**
-     * @var string
+     * @var ?string
      */
     private $name;
 
@@ -24,17 +24,12 @@ class Host
      */
     private $ddnsHostname;
 
-    /**
-     * @var array
-     */
-    private $options;
-
     public function __construct(string $name = null)
     {
         $this->name = $name;
     }
 
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -61,7 +56,7 @@ class Host
         return $this->fixedAddress;
     }
 
-    public function setFixedAddress($fixedAddress)
+    public function setFixedAddress($fixedAddress): Host
     {
         $this->fixedAddress = (array) $fixedAddress;
         return $this;

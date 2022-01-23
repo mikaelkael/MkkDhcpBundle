@@ -62,11 +62,6 @@ class Lease
     private $hardware;
 
     /**
-     * @var array
-     */
-    private $options = [];
-
-    /**
      * @var string
      */
     private $clientHostname;
