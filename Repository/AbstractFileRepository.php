@@ -33,10 +33,11 @@ class AbstractFileRepository
     }
 
     /**
+     * @return mixed
      * @throws FormatException
      * @throws \InvalidArgumentException
      */
-    public function readFile(): mixed
+    public function readFile()
     {
         if ($this->parsedContent === null) {
             if (substr($this->fileUri, 0, 7) != 'file://') {
