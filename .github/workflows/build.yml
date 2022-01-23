@@ -64,9 +64,9 @@ jobs:
           run: |
               sed -ri 's/"symfony\/(.+)": "(.+)"/"symfony\/\1": "'${{ matrix.symfony }}'"/' composer.json;
           if: contains(matrix.symfony, '-dev')
-          run: composer config minimum-stability dev
-          run: composer config prefer-stable true
+        - run: composer config minimum-stability dev
+        - run: composer config prefer-stable true
           if: matrix.symfony
-          run: composer update --no-interaction --no-progress --ansi ${{ matrix.composer_option }}
+        - run: composer update --no-interaction --no-progress --ansi ${{ matrix.composer_option }}
         - name: Execute tests (Unit and Feature tests) via PHPUnit
           run: vendor/bin/phpunit
