@@ -11,7 +11,8 @@ use Mkk\DhcpBundle\Component\Host\HostFile;
 abstract class AbstractParser
 {
     /**
+     * @return mixed
      * @throws FormatException
      */
-    abstract public function parse(string $source): mixed;
+    abstract public function parse(string $source);
 }
