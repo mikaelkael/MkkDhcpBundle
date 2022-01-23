@@ -27,23 +27,23 @@ jobs:
               uses: docker://oskarstark/php-cs-fixer-ga          
     tests:
       runs-on: ubuntu-latest
-        strategy:
-          matrix:
-            php:
-              - '7.3'
-              - '7.4'
-              - '8.0'
-            include:
-              - description: 'Symfony 5.3'
-                php: '7.3'
-                symfony: 5.3.*
-                composer_option: '--prefer-lowest'
-              - description: 'Symfony 5.4'
-                php: '7.4'
-                symfony: 5.4.*
-              - description: 'Symfony 6.0'
-                php: '8.0'
-                symfony: 6.0.*-dev
+      strategy:
+        matrix:
+          php:
+            - '7.3'
+            - '7.4'
+            - '8.0'
+          include:
+            - description: 'Symfony 5.3'
+              php: '7.3'
+              symfony: 5.3.*
+              composer_option: '--prefer-lowest'
+            - description: 'Symfony 5.4'
+              php: '7.4'
+              symfony: 5.4.*
+            - description: 'Symfony 6.0'
+              php: '8.0'
+              symfony: 6.0.*-dev
       name: PHP ${{ matrix.php }} tests (${{ matrix.description }})
       steps:
         - name: Checkout
