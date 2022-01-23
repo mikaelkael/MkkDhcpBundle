@@ -7,7 +7,6 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class HostRepositoryTest extends WebTestCase
 {
-
     public function testService()
     {
         $kernel = static::createKernel();
@@ -19,12 +18,10 @@ class HostRepositoryTest extends WebTestCase
         $this->assertEquals(2, count($service->getHosts()));
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage can't read file '/tmp'
-     */
     public function testInvalidHostFileUri()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage("can't read file '/tmp'");
         $kernel = static::createKernel();
         $kernel->boot();
         $container = $kernel->getContainer();
@@ -34,12 +31,10 @@ class HostRepositoryTest extends WebTestCase
         $service->getHosts();
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage file does not exist 'file:///tmp/noexists'
-     */
     public function testEmptyHostFile()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage("file does not exist 'file:///tmp/noexists'");
         $kernel = static::createKernel();
         $kernel->boot();
         $container = $kernel->getContainer();

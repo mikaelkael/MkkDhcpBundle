@@ -9,29 +9,20 @@ class HostFile
      */
     private $hosts = [];
 
-    /**
-     * @return Host[]
-     */
     public function getHosts()
     {
         return $this->hosts;
     }
 
-    /**
-     * @param string $hostName
-     * @return bool
-     */
-    public function hasHost($hostName)
+    public function hasHost(string $hostName): bool
     {
         return isset($this->hosts[$hostName]);
     }
 
     /**
-     * @param string $hostName
-     * @return Host
      * @throws \OutOfBoundsException
      */
-    public function getHost($hostName)
+    public function getHost(string $hostName): Host
     {
         if (!$this->hasHost($hostName)) {
             throw new \OutOfBoundsException($hostName);
@@ -40,21 +31,13 @@ class HostFile
         return $this->hosts[$hostName];
     }
 
-    /**
-     * @param Host $host
-     * @return HostFile
-     */
-    public function addHost(Host $host)
+    public function addHost(Host $host): HostFile
     {
         $this->hosts[$host->getName()] = $host;
         return $this;
     }
 
-    /**
-     * @param string $hostName
-     * @return HostFile
-     */
-    public function removeHost($hostName)
+    public function removeHost(string $hostName): HostFile
     {
         unset($this->hosts[$hostName]);
         return $this;

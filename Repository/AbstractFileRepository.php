@@ -7,7 +7,6 @@ use Mkk\DhcpBundle\Component\Parser\FormatException;
 
 class AbstractFileRepository
 {
-
     /**
      * @var AbstractParser
      */
@@ -20,17 +19,13 @@ class AbstractFileRepository
 
     private $parsedContent = null;
 
-    public function __construct(AbstractParser $parser, $fileUri)
+    public function __construct(AbstractParser $parser, string $fileUri)
     {
         $this->parser = $parser;
         $this->setFileUri($fileUri);
     }
 
-    /**
-     * @param string $fileUri
-     * @return AbstractFileRepository
-     */
-    public function setFileUri($fileUri)
+    public function setFileUri(string $fileUri): AbstractFileRepository
     {
         $this->parsedContent = null;
         $this->fileUri = $fileUri;
@@ -38,11 +33,10 @@ class AbstractFileRepository
     }
 
     /**
-     * @return mixed
      * @throws FormatException
      * @throws \InvalidArgumentException
      */
-    public function readFile()
+    public function readFile(): mixed
     {
         if ($this->parsedContent === null) {
             if (substr($this->fileUri, 0, 7) != 'file://') {

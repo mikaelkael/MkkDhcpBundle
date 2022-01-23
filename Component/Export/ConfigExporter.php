@@ -16,12 +16,7 @@ class ConfigExporter
         $this->hostExporter = new HostExporter();
     }
 
-    /**
-     * @param HostFile $config
-     * @param int $depth
-     * @return string
-     */
-    public function export(HostFile $config, $depth = 0)
+    public function export(HostFile $config, int $depth = 0): string
     {
         $result = '';
         foreach ($config->getHosts() as $host) {

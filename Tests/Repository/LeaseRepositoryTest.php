@@ -7,7 +7,6 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class LeaseRepositoryTest extends WebTestCase
 {
-
     public function testService()
     {
         $kernel = static::createKernel();

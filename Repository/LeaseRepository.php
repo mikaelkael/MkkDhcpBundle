@@ -8,27 +8,24 @@ use Mkk\DhcpBundle\Component\Parser\LeaseParser;
 
 class LeaseRepository extends AbstractFileRepository
 {
-
     public function __construct(LeaseParser $parser, $leasesFileUri)
     {
         parent::__construct($parser, $leasesFileUri);
     }
 
     /**
-     * @return mixed
      * @throws FormatException
      * @throws \InvalidArgumentException
      */
-    public function getLeases()
+    public function getLeases(): array
     {
         return $this->readFile()->getLeases();
     }
 
     /**
-     * @return array
      * @throws FormatException
      */
-    public function getActiveFreeLeases()
+    public function getActiveFreeLeases(): array
     {
         return array_filter($this->getLeases(), function (Lease $lease) {
             return strtolower($lease->getBindingState()) === 'active';

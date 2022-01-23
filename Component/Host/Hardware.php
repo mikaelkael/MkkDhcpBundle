@@ -17,34 +17,23 @@ class Hardware
     /**
      * @return string
      */
-    public function getType()
+    public function getType(): string
     {
         return $this->type;
     }
 
-    /**
-     * @param string $type
-     * @return Hardware
-     */
-    public function setType($type)
+    public function setType(string $type): Hardware
     {
         $this->type = $type;
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getAddress()
+    public function getAddress(): string
     {
         return $this->address;
     }
 
-    /**
-     * @param string $address
-     * @return Hardware
-     */
-    public function setAddress($address)
+    public function setAddress(string $address): Hardware
     {
         $this->address = $address;
         return $this;

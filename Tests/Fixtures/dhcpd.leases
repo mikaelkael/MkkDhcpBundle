@@ -1,5 +1,8 @@
 # The format of this file is documented in the dhcpd.leases(5) manual page.
-# This lease file was written by isc-dhcp-4.3.3
+# This lease file was written by isc-dhcp-4.4.1
+
+# authoring-byte-order entry is generated, DO NOT DELETE
+authoring-byte-order little-endian;
 
 lease 192.168.33.200 {
   starts 5 2016/03/11 13:44:55;
@@ -8,6 +11,9 @@ lease 192.168.33.200 {
   cltt 5 2016/03/11 13:44:55;
   binding state free;
   hardware ethernet 00:16:3e:8f:e4:dc;
+  uid "\001\000!Z(\010\362";
+  set vendorclass = "MSFT 5.0";
+  set vendor-class-identifier = "MSFT 5.0";
 }
 lease 192.168.33.201 {
   starts 5 2016/03/11 17:18:35;
@@ -17,7 +23,10 @@ lease 192.168.33.201 {
   binding state free;
   hardware ethernet 00:16:3e:40:1f:d6;
   set ddns-fwd-name = "unifi.office.maind.sk.";
+  set ddns-rev-name = "201.22.168.192.in-addr.arpa";
   set ddns-txt = "007c8c82a115e5f7241c4b513c0bccfb27";
+  client-hostname "unifi";
+  dynamic-bootp;
 }
 lease 192.168.33.202 {
   starts 2 2016/03/15 16:17:47;

@@ -77,263 +77,249 @@ class Lease
     private $uid;
 
     /**
-     * @return Ip
+     * @var string
      */
-    public function getIp()
+    private $vendorClass;
+
+    /**
+     * @var string
+     */
+    private $vendorClassIdentifier;
+
+    /**
+     * @var string
+     */
+    private $ddnsFwdName;
+
+    /**
+     * @var string
+     */
+    private $ddnsRevName;
+
+    /**
+     * @var string
+     */
+    private $ddnsTxt;
+
+    /**
+     * @var boolean
+     */
+    private $dynamicBootp;
+
+    /**
+     * @return bool
+     */
+    public function isDynamicBootp(): bool
+    {
+        return $this->dynamicBootp;
+    }
+
+    public function setDynamicBootp(): Lease
+    {
+        $this->dynamicBootp = true;
+        return $this;
+    }
+
+    public function getDdnsTxt(): string
+    {
+        return $this->ddnsTxt;
+    }
+
+    public function setDdnsTxt(string $ddnsTxt): Lease
+    {
+        $this->ddnsTxt = $ddnsTxt;
+        return $this;
+    }
+
+    public function getDdnsRevName(): string
+    {
+        return $this->ddnsRevName;
+    }
+
+    public function setDdnsRevName(string $ddnsRevName): Lease
+    {
+        $this->ddnsRevName = $ddnsRevName;
+        return $this;
+    }
+
+    public function getDdnsFwdName(): string
+    {
+        return $this->ddnsFwdName;
+    }
+
+    public function setDdnsFwdName(string $ddnsFwdName): Lease
+    {
+        $this->ddnsFwdName = $ddnsFwdName;
+        return $this;
+    }
+
+    public function getVendorClassIdentifier(): string
+    {
+        return $this->vendorClassIdentifier;
+    }
+
+    public function setVendorClassIdentifier(string $vendorClassIdentifier): Lease
+    {
+        $this->vendorClassIdentifier = $vendorClassIdentifier;
+        return $this;
+    }
+
+    public function getVendorClass(): string
+    {
+        return $this->vendorClass;
+    }
+
+    public function setVendorClass(string $vendorClass): Lease
+    {
+        $this->vendorClass = $vendorClass;
+        return $this;
+    }
+
+    public function __construct($ip = null)
+    {
+        if ($ip !== null) {
+            $this->setIp(new Ip($ip));
+        }
+    }
+
+    public function getIp(): ?Ip
     {
         return $this->ip;
     }
 
-    /**
-     * @param Ip $ip
-     */
-    public function setIp($ip)
+    public function setIp($ip): Lease
     {
         $this->ip = $ip;
         return $this;
     }
 
-    /**
-     * @return \DateTime
-     */
-    public function getStarts()
+    public function getStarts(): ?\DateTime
     {
         return $this->starts;
     }
 
-    /**
-     * @param \DateTime $starts
-     */
-    public function setStarts(\DateTime $starts)
+    public function setStarts(?\DateTime $starts): Lease
     {
         $this->starts = $starts;
         return $this;
     }
 
-    /**
-     * @return \DateTime
-     */
-    public function getEnds()
+    public function getEnds(): ?\DateTime
     {
         return $this->ends;
     }
 
-    /**
-     * @param \DateTime $ends
-     */
-    public function setEnds($ends)
+    public function setEnds(?\DateTime $ends): Lease
     {
         $this->ends = $ends;
         return $this;
     }
 
-    /**
-     * @return \DateTime
-     */
-    public function getTstp()
+    public function getTstp(): ?\DateTime
     {
         return $this->tstp;
     }
 
-    /**
-     * @param \DateTime $tstp
-     */
-    public function setTstp($tstp)
+    public function setTstp(?\DateTime $tstp): Lease
     {
         $this->tstp = $tstp;
         return $this;
     }
 
-    /**
-     * @return \DateTime
-     */
-    public function getTsfp()
+    public function getTsfp(): ?\DateTime
     {
         return $this->tsfp;
     }
 
-    /**
-     * @param \DateTime $tsfp
-     */
-    public function setTsfp($tsfp)
+    public function setTsfp(?\DateTime$tsfp): Lease
     {
         $this->tsfp = $tsfp;
         return $this;
     }
 
-    /**
-     * @return \DateTime
-     */
-    public function getAtsfp()
+    public function getAtsfp(): ?\DateTime
     {
         return $this->atsfp;
     }
 
-    /**
-     * @param \DateTime $atsfp
-     */
-    public function setAtsfp($atsfp)
+    public function setAtsfp(?\DateTime $atsfp): Lease
     {
         $this->atsfp = $atsfp;
         return $this;
     }
 
-    /**
-     * @return \DateTime
-     */
-    public function getCltt()
+    public function getCltt(): ?\DateTime
     {
         return $this->cltt;
     }
 
-    /**
-     * @param \DateTime $cltt
-     */
-    public function setCltt($cltt)
+    public function setCltt(?\DateTime $cltt): Lease
     {
         $this->cltt = $cltt;
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getBindingState()
+    public function getBindingState(): string
     {
         return $this->bindingState;
     }
 
-    /**
-     * @param string $bindingState
-     */
-    public function setBindingState($bindingState)
+    public function setBindingState(string $bindingState): Lease
     {
         $this->bindingState = $bindingState;
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getNextBindingState()
+    public function getNextBindingState(): string
     {
         return $this->nextBindingState;
     }
 
-    /**
-     * @param string $nextBindingState
-     */
-    public function setNextBindingState($nextBindingState)
+    public function setNextBindingState(string $nextBindingState): Lease
     {
         $this->nextBindingState = $nextBindingState;
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getRewindBindingState()
+    public function getRewindBindingState(): string
     {
         return $this->rewindBindingState;
     }
 
-    /**
-     * @param string $rewindBindingState
-     */
-    public function setRewindBindingState($rewindBindingState)
+    public function setRewindBindingState(string $rewindBindingState): Lease
     {
         $this->rewindBindingState = $rewindBindingState;
         return $this;
     }
 
-    /**
-     * @return Hardware
-     */
-    public function getHardware()
+    public function getHardware(): Hardware
     {
         return $this->hardware;
     }
 
-    /**
-     * @param Hardware $hardware
-     */
-    public function setHardware($hardware)
+    public function setHardware(Hardware $hardware)
     {
         $this->hardware = $hardware;
         return $this;
     }
 
-    /**
-     * @return array
-     */
-    public function getOptions()
-    {
-        return $this->options;
-    }
-
-    /**
-     * @param string $name
-     * @return bool
-     */
-    public function hasOption($name)
-    {
-        return array_key_exists($name, $this->options);
-    }
-
-    /**
-     * @param string $name
-     * @return mixed
-     */
-    public function getOption($name)
-    {
-        if ($this->hasOption($name)) {
-            throw new \OutOfBoundsException();
-        }
-
-        return $this->options[$name];
-    }
-
-    public function setOption($name, $value)
-    {
-        $this->options[$name] = $value;
-        return $this;
-    }
-
-    public function removeOption($name)
-    {
-        unset($this->options[$name]);
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getClientHostname()
+    public function getClientHostname(): string
     {
         return $this->clientHostname;
     }
 
-    /**
-     * @param string $clientHostname
-     */
-    public function setClientHostname($clientHostname)
+    public function setClientHostname(string $clientHostname): Lease
     {
         $this->clientHostname = $clientHostname;
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getUid()
+    public function getUid(): string
     {
         return $this->uid;
     }
 
-    /**
-     * @param string $uid
-     */
-    public function setUid($uid)
+    public function setUid(string $uid): Lease
     {
         $this->uid = $uid;
         return $this;

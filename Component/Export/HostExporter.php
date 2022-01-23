@@ -7,12 +7,7 @@ use Mkk\DhcpBundle\Component\Host\Host;
 
 class HostExporter
 {
-    /**
-     * @param Host $host
-     * @param int $depth
-     * @return string
-     */
-    public function export(Host $host, $depth = 0)
+    public function export(Host $host, int $depth = 0): string
     {
         $depth  = (int)$depth;
         $result = str_repeat("\t", $depth) . 'host ' . $host->getName() . " {\n";
@@ -24,7 +19,7 @@ class HostExporter
         return $result;
     }
 
-    private function exportHardware(Hardware $hardware)
+    private function exportHardware(Hardware $hardware): string
     {
         return 'hardware ' . $hardware->getType() . ' ' . $hardware->getAddress() . ";\n";
     }

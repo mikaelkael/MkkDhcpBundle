@@ -9,10 +9,7 @@ class Ip
      */
     private $address;
 
-    /**
-     * @param string $address
-     */
-    public function __construct($address)
+    public function __construct(string $address)
     {
         if (preg_match('/^(1?\\d{1,2}|2([0-4]\\d|5[0-5]))(\.(1?\\d{1,2}|2([0-4]\\d|5[0-5]))){3}$/', $address) !== 1) {
             throw new \InvalidArgumentException(sprintf(
@@ -20,14 +17,10 @@ class Ip
                 $address
             ));
         }
-
         $this->address = $address;
     }
 
-    /**
-     * @return string
-     */
-    public function getAddress()
+    public function getAddress(): string
     {
         return $this->address;
     }

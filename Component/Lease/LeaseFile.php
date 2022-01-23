@@ -12,12 +12,12 @@ class LeaseFile
     /**
      * @return Lease[]
      */
-    public function getLeases()
+    public function getLeases(): array
     {
         return $this->leases;
     }
 
-    public function addLease(Lease $lease)
+    public function addLease(Lease $lease): LeaseFile
     {
         if ($lease->getIp() === null) {
             throw new \InvalidArgumentException('no lease ip');
@@ -28,7 +28,7 @@ class LeaseFile
         return $this;
     }
 
-    public function removeLease(Ip $ip)
+    public function removeLease(Ip $ip): LeaseFile
     {
         unset($this->leases[$ip->getAddress()]);
         return $this;

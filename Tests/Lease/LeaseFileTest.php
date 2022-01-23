@@ -2,7 +2,6 @@
 
 namespace Mkk\DhcpBundle\Tests\Lease;
 
-
 use Mkk\DhcpBundle\Component\Lease\Ip;
 use Mkk\DhcpBundle\Component\Lease\Lease;
 use Mkk\DhcpBundle\Component\Lease\LeaseFile;
@@ -24,12 +23,10 @@ class LeaseFileTest extends TestCase
         $this->assertSame($lease, $leases[$address]);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage no lease ip
-     */
     public function testAddLeaseNoIp()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage("no lease ip");
         $leaseFile = new LeaseFile();
         $leaseFile->addLease(new Lease());
     }

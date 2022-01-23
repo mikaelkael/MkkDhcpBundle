@@ -11,7 +11,7 @@ class HardwareTest extends TestCase
     {
         $type    = 'ethernet';
         $address = '00:01:02:03:04:05';
-        $hw      = (new Hardware)->setType($type)->setAddress($address);
+        $hw      = (new Hardware())->setType($type)->setAddress($address);
 
         $this->assertEquals($type, $hw->getType());
         $this->assertEquals($address, $hw->getAddress());

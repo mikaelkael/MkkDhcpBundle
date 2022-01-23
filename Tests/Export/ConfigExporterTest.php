@@ -15,13 +15,13 @@ class ConfigExporterTest extends TestCase
         $config = new HostFile();
 
         $host = new Host('test1');
-        $host->setHardware((new Hardware)->setType('ethernet')->setAddress('00:01:02:03:04:05'));
+        $host->setHardware((new Hardware())->setType('ethernet')->setAddress('00:01:02:03:04:05'));
         $host->setFixedAddress('1.2.3.4');
         $host->setDdnsHostname('test1');
         $config->addHost($host);
 
         $host = new Host('test2');
-        $host->setHardware((new Hardware)->setType('ethernet')->setAddress('01:02:03:04:05:06'));
+        $host->setHardware((new Hardware())->setType('ethernet')->setAddress('01:02:03:04:05:06'));
         $host->setFixedAddress('2.3.4.5');
         $host->setDdnsHostname('test2');
         $config->addHost($host);

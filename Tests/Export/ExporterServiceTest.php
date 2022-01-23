@@ -8,7 +8,6 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class ExporterServiceTest extends WebTestCase
 {
-
     public function testHostExporterService()
     {
         $kernel = static::createKernel();

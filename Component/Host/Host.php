@@ -29,90 +29,59 @@ class Host
      */
     private $options;
 
-    /**
-     * Host constructor.
-     * @param string|null $name
-     */
-    public function __construct($name = null)
+    public function __construct(string $name = null)
     {
         $this->name = $name;
     }
 
-    /**
-     * @return string
-     */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @param string $name
-     */
-    public function setName($name)
+    public function setName(string $name): Host
     {
         $this->name = $name;
         return $this;
     }
 
-    /**
-     * @return Hardware
-     */
-    public function getHardware()
+    public function getHardware(): Hardware
     {
         return $this->hardware;
     }
 
-    /**
-     * @param Hardware $hardware
-     */
-    public function setHardware(Hardware $hardware)
+    public function setHardware(Hardware $hardware): Host
     {
         $this->hardware = $hardware;
         return $this;
     }
 
-    /**
-     * @return string[]
-     */
-    public function getFixedAddress()
+    public function getFixedAddress(): array
     {
         return $this->fixedAddress;
     }
 
-    /**
-     * @param string|string[] $fixedAddress
-     */
     public function setFixedAddress($fixedAddress)
     {
         $this->fixedAddress = (array) $fixedAddress;
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getDdnsHostname()
+    public function getDdnsHostname(): string
     {
         return $this->ddnsHostname;
     }
 
-    /**
-     * @param string $ddnsHostname
-     */
-    public function setDdnsHostname($ddnsHostname)
+    public function setDdnsHostname(string $ddnsHostname): Host
     {
         $this->ddnsHostname = $ddnsHostname;
         return $this;
     }
 
-    /**
-     * @return string[]
-     */
-    public function getDnsHostname()
+    public function getDnsHostname(): array
     {
         $hostByAddr = [];
-        foreach($this->fixedAddress as $address) {
+        foreach ($this->fixedAddress as $address) {
             $hostByAddr[] = gethostbyaddr($address);
         }
         return $hostByAddr;

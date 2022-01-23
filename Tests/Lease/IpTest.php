@@ -15,12 +15,10 @@ class IpTest extends TestCase
         $this->assertEquals($address, $ip->getAddress());
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage ip address must be between 0.0.0.0 and 255.255.255.255, got '1.2.3.256'
-     */
     public function testConstructorAndGetAddressInvalid()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage("ip address must be between 0.0.0.0 and 255.255.255.255, got '1.2.3.256'");
         new Ip('1.2.3.256');
     }
 }

@@ -87,11 +87,9 @@ class ConfigTest extends TestCase
         $this->assertSame($host, $config->getHost('test'));
     }
 
-    /**
-     * @expectedException \OutOfBoundsException
-     */
     public function testGetHostNotContains()
     {
+        $this->expectException(\OutOfBoundsException::class);
         $config = new HostFile();
         $config->getHost('test');
     }
