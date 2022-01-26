@@ -2,15 +2,15 @@
 
 namespace Mkk\DhcpBundle\Tests\Export;
 
-use Mkk\DhcpBundle\Component\Host\HostFile;
+use Mkk\DhcpBundle\Component\Export\ConfigExporter;
 use Mkk\DhcpBundle\Component\Host\Hardware;
 use Mkk\DhcpBundle\Component\Host\Host;
-use Mkk\DhcpBundle\Component\Export\ConfigExporter;
+use Mkk\DhcpBundle\Component\Host\HostFile;
 use PHPUnit\Framework\TestCase;
 
-class ConfigExporterTest extends TestCase
+final class ConfigExporterTest extends TestCase
 {
-    public function testExport()
+    public function testExport(): void
     {
         $config = new HostFile();
 
@@ -44,7 +44,7 @@ host test2 {
         $this->assertEquals($expected, $exporter->export($config));
     }
 
-    public function testExportEmpty()
+    public function testExportEmpty(): void
     {
         $config = new HostFile();
 

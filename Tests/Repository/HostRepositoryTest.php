@@ -5,9 +5,9 @@ namespace Mkk\DhcpBundle\Tests\Repository;
 use Mkk\DhcpBundle\Repository\HostRepository;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class HostRepositoryTest extends WebTestCase
+final class HostRepositoryTest extends WebTestCase
 {
-    public function testService()
+    public function testService(): void
     {
         $kernel = static::createKernel();
         $kernel->boot();
@@ -15,10 +15,10 @@ class HostRepositoryTest extends WebTestCase
 
         $service = $container->get(HostRepository::class);
         $this->assertTrue($service instanceof HostRepository);
-        $this->assertEquals(2, count($service->getHosts()));
+        $this->assertCount(2, $service->getHosts());
     }
 
-    public function testInvalidHostFileUri()
+    public function testInvalidHostFileUri(): void
     {
         $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage("can't read file '/tmp'");
@@ -31,7 +31,7 @@ class HostRepositoryTest extends WebTestCase
         $service->getHosts();
     }
 
-    public function testEmptyHostFile()
+    public function testEmptyHostFile(): void
     {
         $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage("file does not exist 'file:///tmp/noexists'");

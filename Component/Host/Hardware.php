@@ -2,7 +2,7 @@
 
 namespace Mkk\DhcpBundle\Component\Host;
 
-class Hardware
+final class Hardware
 {
     /**
      * @var string
@@ -14,17 +14,15 @@ class Hardware
      */
     private $address;
 
-    /**
-     * @return string
-     */
     public function getType(): string
     {
         return $this->type;
     }
 
-    public function setType(string $type): Hardware
+    public function setType(string $type): self
     {
         $this->type = $type;
+
         return $this;
     }
 
@@ -33,9 +31,10 @@ class Hardware
         return $this->address;
     }
 
-    public function setAddress(string $address): Hardware
+    public function setAddress(string $address): self
     {
         $this->address = $address;
+
         return $this;
     }
 }

@@ -6,7 +6,7 @@ use Mkk\DhcpBundle\Component\Lease\Lease;
 use Mkk\DhcpBundle\Component\Parser\FormatException;
 use Mkk\DhcpBundle\Component\Parser\LeaseParser;
 
-class LeaseRepository extends AbstractFileRepository
+final class LeaseRepository extends AbstractFileRepository
 {
     public function __construct(LeaseParser $parser, $leasesFileUri)
     {
@@ -27,8 +27,8 @@ class LeaseRepository extends AbstractFileRepository
      */
     public function getActiveFreeLeases(): array
     {
-        return array_filter($this->getLeases(), function (Lease $lease) {
-            return strtolower($lease->getBindingState()) === 'active';
+        return \array_filter($this->getLeases(), function (Lease $lease) {
+            return 'active' === \strtolower($lease->getBindingState());
         });
     }
 }

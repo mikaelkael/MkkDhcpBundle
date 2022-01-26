@@ -7,13 +7,13 @@ use Mkk\DhcpBundle\Component\Lease\Lease;
 use Mkk\DhcpBundle\Component\Lease\LeaseFile;
 use PHPUnit\Framework\TestCase;
 
-class LeaseFileTest extends TestCase
+final class LeaseFileTest extends TestCase
 {
-    public function testAddLease()
+    public function testAddLease(): void
     {
         $leaseFile = new LeaseFile();
-        $lease     = new Lease();
-        $address   = '1.2.3.4';
+        $lease = new Lease();
+        $address = '1.2.3.4';
         $lease->setIp(new Ip($address));
         $leaseFile->addLease($lease);
 
@@ -23,19 +23,19 @@ class LeaseFileTest extends TestCase
         $this->assertSame($lease, $leases[$address]);
     }
 
-    public function testAddLeaseNoIp()
+    public function testAddLeaseNoIp(): void
     {
         $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage("no lease ip");
+        $this->expectExceptionMessage('no lease ip');
         $leaseFile = new LeaseFile();
         $leaseFile->addLease(new Lease());
     }
 
-    public function testRemoveLease()
+    public function testRemoveLease(): void
     {
         $leaseFile = new LeaseFile();
-        $lease     = new Lease();
-        $address   = '1.2.3.4';
+        $lease = new Lease();
+        $address = '1.2.3.4';
         $lease->setIp(new Ip($address));
         $leaseFile->addLease($lease);
 

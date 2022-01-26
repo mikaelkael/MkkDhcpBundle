@@ -2,13 +2,13 @@
 
 namespace Mkk\DhcpBundle\Tests\Configuration;
 
-use Mkk\DhcpBundle\Component\Host\HostFile;
 use Mkk\DhcpBundle\Component\Host\Host;
+use Mkk\DhcpBundle\Component\Host\HostFile;
 use PHPUnit\Framework\TestCase;
 
-class ConfigTest extends TestCase
+final class ConfigTest extends TestCase
 {
-    public function testGetHosts()
+    public function testGetHosts(): void
     {
         $config = new HostFile();
         $this->assertEmpty($config->getHosts());
@@ -23,10 +23,10 @@ class ConfigTest extends TestCase
         $this->assertEquals([$host1->getName() => $host1, $host2->getName() => $host2], $hosts);
     }
 
-    public function testAddHost()
+    public function testAddHost(): void
     {
         $config = new HostFile();
-        $host   = new Host('test');
+        $host = new Host('test');
         $config->addHost($host);
 
         $hosts = $config->getHosts();
@@ -35,10 +35,10 @@ class ConfigTest extends TestCase
         $this->assertSame($host, $hosts[$host->getName()]);
     }
 
-    public function testAddHostWithSameName()
+    public function testAddHostWithSameName(): void
     {
         $config = new HostFile();
-        $host1  = new Host('test');
+        $host1 = new Host('test');
         $host1->setDdnsHostname('test1');
         $host2 = new Host('test');
         $host2->setDdnsHostname('test2');
@@ -50,10 +50,10 @@ class ConfigTest extends TestCase
         $this->assertSame($host2, $hosts[$host2->getName()]);
     }
 
-    public function testRemoveHost()
+    public function testRemoveHost(): void
     {
         $config = new HostFile();
-        $host   = new Host('test');
+        $host = new Host('test');
         $config->addHost($host);
 
         $this->assertCount(1, $config->getHosts());
@@ -63,14 +63,14 @@ class ConfigTest extends TestCase
         $this->assertEmpty($config->getHosts());
     }
 
-    public function testHasHostNotContains()
+    public function testHasHostNotContains(): void
     {
         $config = new HostFile();
 
         $this->assertFalse($config->hasHost('test'));
     }
 
-    public function testHasHostContains()
+    public function testHasHostContains(): void
     {
         $config = new HostFile();
         $config->addHost(new Host('test'));
@@ -78,16 +78,16 @@ class ConfigTest extends TestCase
         $this->assertTrue($config->hasHost('test'));
     }
 
-    public function testGetHost()
+    public function testGetHost(): void
     {
         $config = new HostFile();
-        $host   = new Host('test');
+        $host = new Host('test');
         $config->addHost($host);
 
         $this->assertSame($host, $config->getHost('test'));
     }
 
-    public function testGetHostNotContains()
+    public function testGetHostNotContains(): void
     {
         $this->expectException(\OutOfBoundsException::class);
         $config = new HostFile();

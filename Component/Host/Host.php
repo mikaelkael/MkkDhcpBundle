@@ -2,7 +2,7 @@
 
 namespace Mkk\DhcpBundle\Component\Host;
 
-class Host
+final class Host
 {
     /**
      * @var ?string
@@ -34,9 +34,10 @@ class Host
         return $this->name;
     }
 
-    public function setName(string $name): Host
+    public function setName(string $name): self
     {
         $this->name = $name;
+
         return $this;
     }
 
@@ -45,9 +46,10 @@ class Host
         return $this->hardware;
     }
 
-    public function setHardware(Hardware $hardware): Host
+    public function setHardware(Hardware $hardware): self
     {
         $this->hardware = $hardware;
+
         return $this;
     }
 
@@ -56,9 +58,10 @@ class Host
         return $this->fixedAddress;
     }
 
-    public function setFixedAddress($fixedAddress): Host
+    public function setFixedAddress($fixedAddress): self
     {
         $this->fixedAddress = (array) $fixedAddress;
+
         return $this;
     }
 
@@ -67,9 +70,10 @@ class Host
         return $this->ddnsHostname;
     }
 
-    public function setDdnsHostname(string $ddnsHostname): Host
+    public function setDdnsHostname(string $ddnsHostname): self
     {
         $this->ddnsHostname = $ddnsHostname;
+
         return $this;
     }
 
@@ -77,8 +81,9 @@ class Host
     {
         $hostByAddr = [];
         foreach ($this->fixedAddress as $address) {
-            $hostByAddr[] = gethostbyaddr($address);
+            $hostByAddr[] = \gethostbyaddr($address);
         }
+
         return $hostByAddr;
     }
 }

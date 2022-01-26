@@ -5,9 +5,9 @@ namespace Mkk\DhcpBundle\Tests\Repository;
 use Mkk\DhcpBundle\Repository\LeaseRepository;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class LeaseRepositoryTest extends WebTestCase
+final class LeaseRepositoryTest extends WebTestCase
 {
-    public function testService()
+    public function testService(): void
     {
         $kernel = static::createKernel();
         $kernel->boot();
@@ -15,7 +15,7 @@ class LeaseRepositoryTest extends WebTestCase
 
         $service = $container->get(LeaseRepository::class);
         $this->assertTrue($service instanceof LeaseRepository);
-        $this->assertEquals(10, count($service->getLeases()));
-        $this->assertEquals(1, count($service->getActiveFreeLeases()));
+        $this->assertCount(10, $service->getLeases());
+        $this->assertCount(1, $service->getActiveFreeLeases());
     }
 }

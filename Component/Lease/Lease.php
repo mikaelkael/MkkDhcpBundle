@@ -4,7 +4,7 @@ namespace Mkk\DhcpBundle\Component\Lease;
 
 use Mkk\DhcpBundle\Component\Host\Hardware;
 
-class Lease
+final class Lease
 {
     /**
      * @var Ip
@@ -97,21 +97,19 @@ class Lease
     private $ddnsTxt;
 
     /**
-     * @var boolean
+     * @var bool
      */
     private $dynamicBootp;
 
-    /**
-     * @return bool
-     */
     public function isDynamicBootp(): bool
     {
         return $this->dynamicBootp;
     }
 
-    public function setDynamicBootp(): Lease
+    public function setDynamicBootp(): self
     {
         $this->dynamicBootp = true;
+
         return $this;
     }
 
@@ -120,9 +118,10 @@ class Lease
         return $this->ddnsTxt;
     }
 
-    public function setDdnsTxt(string $ddnsTxt): Lease
+    public function setDdnsTxt(string $ddnsTxt): self
     {
         $this->ddnsTxt = $ddnsTxt;
+
         return $this;
     }
 
@@ -131,9 +130,10 @@ class Lease
         return $this->ddnsRevName;
     }
 
-    public function setDdnsRevName(string $ddnsRevName): Lease
+    public function setDdnsRevName(string $ddnsRevName): self
     {
         $this->ddnsRevName = $ddnsRevName;
+
         return $this;
     }
 
@@ -142,9 +142,10 @@ class Lease
         return $this->ddnsFwdName;
     }
 
-    public function setDdnsFwdName(string $ddnsFwdName): Lease
+    public function setDdnsFwdName(string $ddnsFwdName): self
     {
         $this->ddnsFwdName = $ddnsFwdName;
+
         return $this;
     }
 
@@ -153,9 +154,10 @@ class Lease
         return $this->vendorClassIdentifier;
     }
 
-    public function setVendorClassIdentifier(string $vendorClassIdentifier): Lease
+    public function setVendorClassIdentifier(string $vendorClassIdentifier): self
     {
         $this->vendorClassIdentifier = $vendorClassIdentifier;
+
         return $this;
     }
 
@@ -164,15 +166,16 @@ class Lease
         return $this->vendorClass;
     }
 
-    public function setVendorClass(string $vendorClass): Lease
+    public function setVendorClass(string $vendorClass): self
     {
         $this->vendorClass = $vendorClass;
+
         return $this;
     }
 
     public function __construct($ip = null)
     {
-        if ($ip !== null) {
+        if (null !== $ip) {
             $this->setIp(new Ip($ip));
         }
     }
@@ -182,9 +185,10 @@ class Lease
         return $this->ip;
     }
 
-    public function setIp($ip): Lease
+    public function setIp($ip): self
     {
         $this->ip = $ip;
+
         return $this;
     }
 
@@ -193,9 +197,10 @@ class Lease
         return $this->starts;
     }
 
-    public function setStarts(?\DateTime $starts): Lease
+    public function setStarts(?\DateTime $starts): self
     {
         $this->starts = $starts;
+
         return $this;
     }
 
@@ -204,9 +209,10 @@ class Lease
         return $this->ends;
     }
 
-    public function setEnds(?\DateTime $ends): Lease
+    public function setEnds(?\DateTime $ends): self
     {
         $this->ends = $ends;
+
         return $this;
     }
 
@@ -215,9 +221,10 @@ class Lease
         return $this->tstp;
     }
 
-    public function setTstp(?\DateTime $tstp): Lease
+    public function setTstp(?\DateTime $tstp): self
     {
         $this->tstp = $tstp;
+
         return $this;
     }
 
@@ -226,9 +233,10 @@ class Lease
         return $this->tsfp;
     }
 
-    public function setTsfp(?\DateTime$tsfp): Lease
+    public function setTsfp(?\DateTime $tsfp): self
     {
         $this->tsfp = $tsfp;
+
         return $this;
     }
 
@@ -237,9 +245,10 @@ class Lease
         return $this->atsfp;
     }
 
-    public function setAtsfp(?\DateTime $atsfp): Lease
+    public function setAtsfp(?\DateTime $atsfp): self
     {
         $this->atsfp = $atsfp;
+
         return $this;
     }
 
@@ -248,9 +257,10 @@ class Lease
         return $this->cltt;
     }
 
-    public function setCltt(?\DateTime $cltt): Lease
+    public function setCltt(?\DateTime $cltt): self
     {
         $this->cltt = $cltt;
+
         return $this;
     }
 
@@ -259,9 +269,10 @@ class Lease
         return $this->bindingState;
     }
 
-    public function setBindingState(string $bindingState): Lease
+    public function setBindingState(string $bindingState): self
     {
         $this->bindingState = $bindingState;
+
         return $this;
     }
 
@@ -270,9 +281,10 @@ class Lease
         return $this->nextBindingState;
     }
 
-    public function setNextBindingState(string $nextBindingState): Lease
+    public function setNextBindingState(string $nextBindingState): self
     {
         $this->nextBindingState = $nextBindingState;
+
         return $this;
     }
 
@@ -281,9 +293,10 @@ class Lease
         return $this->rewindBindingState;
     }
 
-    public function setRewindBindingState(string $rewindBindingState): Lease
+    public function setRewindBindingState(string $rewindBindingState): self
     {
         $this->rewindBindingState = $rewindBindingState;
+
         return $this;
     }
 
@@ -295,6 +308,7 @@ class Lease
     public function setHardware(Hardware $hardware)
     {
         $this->hardware = $hardware;
+
         return $this;
     }
 
@@ -303,9 +317,10 @@ class Lease
         return $this->clientHostname;
     }
 
-    public function setClientHostname(string $clientHostname): Lease
+    public function setClientHostname(string $clientHostname): self
     {
         $this->clientHostname = $clientHostname;
+
         return $this;
     }
 
@@ -314,9 +329,10 @@ class Lease
         return $this->uid;
     }
 
-    public function setUid(string $uid): Lease
+    public function setUid(string $uid): self
     {
         $this->uid = $uid;
+
         return $this;
     }
 }

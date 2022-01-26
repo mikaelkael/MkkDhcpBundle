@@ -5,7 +5,7 @@ namespace Mkk\DhcpBundle\Repository;
 use Mkk\DhcpBundle\Component\Parser\FormatException;
 use Mkk\DhcpBundle\Component\Parser\HostParser;
 
-class HostRepository extends AbstractFileRepository
+final class HostRepository extends AbstractFileRepository
 {
     public function __construct(HostParser $parser, $hostsFileUri)
     {

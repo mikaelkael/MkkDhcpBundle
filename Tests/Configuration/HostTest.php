@@ -6,9 +6,9 @@ use Mkk\DhcpBundle\Component\Host\Hardware;
 use Mkk\DhcpBundle\Component\Host\Host;
 use PHPUnit\Framework\TestCase;
 
-class HostTest extends TestCase
+final class HostTest extends TestCase
 {
-    public function testGetAndSetName()
+    public function testGetAndSetName(): void
     {
         $host = new Host();
         $hostname = 'test';
@@ -17,7 +17,7 @@ class HostTest extends TestCase
         $this->assertEquals($hostname, $host->getName());
     }
 
-    public function testGetAndSetHardware()
+    public function testGetAndSetHardware(): void
     {
         $host = new Host();
         $hw = new Hardware('ethernet', '00:00:00:00:00:00');
@@ -26,7 +26,7 @@ class HostTest extends TestCase
         $this->assertSame($hw, $host->getHardware());
     }
 
-    public function testGetAndSetFixedAddressSingle()
+    public function testGetAndSetFixedAddressSingle(): void
     {
         $host = new Host();
         $address = '1.2.3.4';
@@ -35,7 +35,7 @@ class HostTest extends TestCase
         $this->assertEquals([$address], $host->getFixedAddress());
     }
 
-    public function testGetAndSetFixedAddressMultiple()
+    public function testGetAndSetFixedAddressMultiple(): void
     {
         $host = new Host();
         $address = ['1.2.3.4', 'example.com'];
@@ -44,7 +44,7 @@ class HostTest extends TestCase
         $this->assertEquals($address, $host->getFixedAddress());
     }
 
-    public function testGetAndSetDdnsHostname()
+    public function testGetAndSetDdnsHostname(): void
     {
         $host = new Host();
         $hostname = 'test';

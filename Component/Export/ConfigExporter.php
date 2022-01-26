@@ -4,7 +4,7 @@ namespace Mkk\DhcpBundle\Component\Export;
 
 use Mkk\DhcpBundle\Component\Host\HostFile;
 
-class ConfigExporter
+final class ConfigExporter
 {
     /**
      * @var HostExporter
@@ -18,14 +18,11 @@ class ConfigExporter
 
     public function export(HostFile $config, int $depth = 0): string
     {
-        $result = '';
+        $result = [];
         foreach ($config->getHosts() as $host) {
-            if (!empty($result)) {
-                $result .= "\n";
-            }
-            $result .= $this->hostExporter->export($host, $depth);
+            $result[] = $this->hostExporter->export($host, $depth);
         }
 
-        return $result;
+        return implode("\n", $result);
     }
 }

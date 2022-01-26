@@ -5,9 +5,8 @@ namespace Mkk\DhcpBundle\Component\Parser;
 use Mkk\DhcpBundle\Component\Host\Hardware;
 use Mkk\DhcpBundle\Component\Host\Host;
 use Mkk\DhcpBundle\Component\Host\HostFile;
-use function PHPUnit\Framework\throwException;
 
-class HostParser extends AbstractParser
+final class HostParser extends AbstractParser
 {
     /**
      * @throws FormatException
@@ -16,17 +15,17 @@ class HostParser extends AbstractParser
     {
         $hostFile = new HostFile();
 
-        if ($source == '') {
+        if ('' == $source) {
             return $hostFile;
         }
 
-        preg_match_all('/\s*host\s*"?([A-Za-z0-9\-\_]*)"?\s*\{(.*?)\}/sm', $source, $matches);
+        \preg_match_all('/\s*host\s*"?([A-Za-z0-9\-\_]*)"?\s*\{(.*?)\}/sm', $source, $matches);
         foreach ($matches[2] as $k => $params) {
             $host = new Host($matches[1][$k]);
-            foreach (explode(";", $params) as $p) {
-                if (trim($p) != '') {
-                    $list = preg_split('~(?<!\\\\)(?:\\\\{2})*"[^"\\\\]*(?:\\\\.[^"\\\\]*)*"(*SKIP)(*F)|\s+~s', trim($p));
-                    $key = array_shift($list);
+            foreach (\explode(';', $params) as $p) {
+                if ('' != \trim($p)) {
+                    $list = \preg_split('~(?<!\\\\)(?:\\\\{2})*"[^"\\\\]*(?:\\\\.[^"\\\\]*)*"(*SKIP)(*F)|\s+~s', \trim($p));
+                    $key = \array_shift($list);
                     switch ($key) {
                         case 'hardware':
                             $host->setHardware((new Hardware())->setType($list[0])->setAddress($list[1]));
@@ -35,10 +34,10 @@ class HostParser extends AbstractParser
                             $host->setFixedAddress($list[0]);
                             break;
                         case 'ddns-hostname':
-                            $host->setDdnsHostname(trim($list[0], "\"\'"));
+                            $host->setDdnsHostname(\trim($list[0], "\"\'"));
                             break;
                         default:
-                            throw new FormatException(sprintf("Unknown configuration: '%s' (with parameters: '%s')", $key, implode(', ', $list)));
+                            throw new FormatException(\sprintf("Unknown configuration: '%s' (with parameters: '%s')", $key, \implode(', ', $list)));
                     }
                 }
             }

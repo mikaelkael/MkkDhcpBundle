@@ -6,9 +6,9 @@ use Mkk\DhcpBundle\Component\Export\ConfigExporter;
 use Mkk\DhcpBundle\Component\Export\HostExporter;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class ExporterServiceTest extends WebTestCase
+final class ExporterServiceTest extends WebTestCase
 {
-    public function testHostExporterService()
+    public function testHostExporterService(): void
     {
         $kernel = static::createKernel();
         $kernel->boot();
@@ -18,7 +18,7 @@ class ExporterServiceTest extends WebTestCase
         $this->assertTrue($service instanceof HostExporter);
     }
 
-    public function testConfigExporterService()
+    public function testConfigExporterService(): void
     {
         $kernel = static::createKernel();
         $kernel->boot();

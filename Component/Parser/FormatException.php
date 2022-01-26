@@ -2,6 +2,6 @@
 
 namespace Mkk\DhcpBundle\Component\Parser;
 
-class FormatException extends \Exception
+final class FormatException extends \Exception
 {
 }

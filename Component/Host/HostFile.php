@@ -2,7 +2,7 @@
 
 namespace Mkk\DhcpBundle\Component\Host;
 
-class HostFile
+final class HostFile
 {
     /**
      * @var Host[]
@@ -31,15 +31,17 @@ class HostFile
         return $this->hosts[$hostName];
     }
 
-    public function addHost(Host $host): HostFile
+    public function addHost(Host $host): self
     {
         $this->hosts[$host->getName()] = $host;
+
         return $this;
     }
 
-    public function removeHost(string $hostName): HostFile
+    public function removeHost(string $hostName): self
     {
         unset($this->hosts[$hostName]);
+
         return $this;
     }
 }

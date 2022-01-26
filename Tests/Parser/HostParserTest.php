@@ -6,11 +6,11 @@ use Mkk\DhcpBundle\Component\Host\HostFile;
 use Mkk\DhcpBundle\Component\Parser\HostParser;
 use PHPUnit\Framework\TestCase;
 
-class HostParserTest extends TestCase
+final class HostParserTest extends TestCase
 {
-    public function testParse()
+    public function testParse(): void
     {
-        $source = file_get_contents(__DIR__ . '/../Fixtures/hosts.conf');
+        $source = \file_get_contents(__DIR__.'/../Fixtures/hosts.conf');
         $parser = new HostParser();
         $config = $parser->parse($source);
 
@@ -36,7 +36,7 @@ class HostParserTest extends TestCase
         $this->assertEquals('test2', $vpn->getDdnsHostname());
     }
 
-    public function testParseEmpty()
+    public function testParseEmpty(): void
     {
         $parser = new HostParser();
         $config = $parser->parse('');
