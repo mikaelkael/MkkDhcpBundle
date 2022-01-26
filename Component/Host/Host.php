@@ -51,7 +51,7 @@ class Host
         return $this;
     }
 
-    public function getFixedAddress(): array
+    public function getFixedAddress(): ?array
     {
         return $this->fixedAddress;
     }
@@ -62,7 +62,7 @@ class Host
         return $this;
     }
 
-    public function getDdnsHostname(): string
+    public function getDdnsHostname(): ?string
     {
         return $this->ddnsHostname;
     }
