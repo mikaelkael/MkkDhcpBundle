@@ -76,7 +76,7 @@ final class HostFile implements \ArrayAccess, \Countable
     public function offsetSet($offset, $host): self
     {
         if (!($host instanceof Host)) {
-            throw new \InvalidArgumentException();
+            throw new \InvalidArgumentException(\sprintf("You should append host to host file as a Host object ('%s' given)", \gettype($host)));
         }
 
         return $this->addHost($host);

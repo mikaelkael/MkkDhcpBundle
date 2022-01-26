@@ -192,8 +192,11 @@ final class Lease
 
     public function __construct($ip = null)
     {
-        if (null !== $ip) {
+        if (\is_string($ip)) {
             $this->setIp(new Ip($ip));
+        }
+        if ($ip instanceof Ip) {
+            $this->setIp($ip);
         }
     }
 

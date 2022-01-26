@@ -13,14 +13,19 @@ final class LeaseFileTest extends TestCase
     {
         $leaseFile = new LeaseFile();
         $lease = new Lease();
-        $address = '1.2.3.4';
-        $lease->setIp(new Ip($address));
+        $lease->setIp(new Ip('1.2.3.4'));
         $leaseFile->addLease($lease);
+        $leaseFile[] = new Lease('2.3.4.5');
+        $leaseFile[] = new Lease(new Ip('3.4.5.6'));
 
         $leases = $leaseFile->getLeases();
-        $this->assertCount(1, $leases);
-        $this->assertArrayHasKey($address, $leases);
-        $this->assertSame($lease, $leases[$address]);
+        $this->assertCount(3, $leases);
+        $this->assertArrayHasKey('1.2.3.4', $leases);
+        $this->assertSame($lease, $leases['1.2.3.4']);
+
+        $this->assertCount(3, $leaseFile);
+        $this->assertArrayHasKey('2.3.4.5', $leaseFile);
+        $this->assertSame($lease, $leaseFile['1.2.3.4']);
     }
 
     public function testAddLeaseNoIp(): void
