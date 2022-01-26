@@ -45,4 +45,20 @@ final class LeaseFileTest extends TestCase
 
         $this->assertEmpty($leaseFile->getLeases());
     }
+
+    public function testOrderOfLeaseFile(): void
+    {
+        $leaseFile = new LeaseFile();
+        $lease = new Lease();
+        $lease->setIp(new Ip('2.3.4.5'));
+        $leaseFile->addLease($lease);
+        $lease = new Lease();
+        $lease->setIp(new Ip('1.2.3.4'));
+        $leaseFile->addLease($lease);
+        $lease = new Lease();
+        $lease->setIp(new Ip('1.1.3.4'));
+        $leaseFile->addLease($lease);
+
+        $this->assertEquals(['1.1.3.4', '1.2.3.4', '2.3.4.5'], array_keys($leaseFile->getLeases()));
+    }
 }

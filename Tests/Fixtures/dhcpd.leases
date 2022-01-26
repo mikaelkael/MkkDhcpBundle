@@ -36,6 +36,7 @@ lease 192.168.33.202 {
   binding state free;
   hardware ethernet 00:08:9b:f1:a6:3a;
   uid "\001\000\010\233\361\246:";
+  abandoned;
 }
 lease 192.168.33.203 {
   starts 4 2016/04/07 13:10:08;
@@ -104,7 +105,7 @@ lease 192.168.33.208 {
   set ddns-fwd-name = "util.office.maind.sk.";
   client-hostname "util";
 }
-lease 192.168.33.208 {
+lease 192.168.33.210 {
   starts 1 2016/04/11 19:46:00;
   ends 1 2016/04/11 19:51:00;
   cltt 1 2016/04/11 19:46:00;
@@ -117,7 +118,7 @@ lease 192.168.33.208 {
   set ddns-fwd-name = "util.office.maind.sk.";
   client-hostname "util";
 }
-lease 192.168.33.208 {
+lease 192.168.33.211 {
   starts 1 2016/04/11 19:47:59;
   ends 1 2016/04/11 19:52:59;
   cltt 1 2016/04/11 19:47:59;
@@ -130,7 +131,7 @@ lease 192.168.33.208 {
   set ddns-fwd-name = "util.office.maind.sk.";
   client-hostname "util";
 }
-lease 192.168.33.208 {
+lease 192.168.33.212 {
   starts 1 2016/04/11 19:50:02;
   ends 1 2016/04/11 19:55:02;
   cltt 1 2016/04/11 19:50:02;
@@ -143,7 +144,7 @@ lease 192.168.33.208 {
   set ddns-fwd-name = "util.office.maind.sk.";
   client-hostname "util";
 }
-lease 192.168.33.208 {
+lease 192.168.33.213 {
   starts 1 2016/04/11 19:52:26;
   ends 1 2016/04/11 19:57:26;
   cltt 1 2016/04/11 19:52:26;
@@ -156,7 +157,7 @@ lease 192.168.33.208 {
   set ddns-fwd-name = "util.office.maind.sk.";
   client-hostname "util";
 }
-lease 192.168.33.208 {
+lease 192.168.33.214 {
   starts 1 2016/04/11 19:54:36;
   ends 1 2016/04/11 19:59:36;
   cltt 1 2016/04/11 19:54:36;
@@ -169,7 +170,7 @@ lease 192.168.33.208 {
   set ddns-fwd-name = "util.office.maind.sk.";
   client-hostname "util";
 }
-lease 192.168.33.208 {
+lease 192.168.33.215 {
   starts 1 2016/04/11 19:56:55;
   ends 1 2016/04/11 20:01:55;
   cltt 1 2016/04/11 19:56:55;
@@ -182,7 +183,7 @@ lease 192.168.33.208 {
   set ddns-fwd-name = "util.office.maind.sk.";
   client-hostname "util";
 }
-lease 192.168.33.208 {
+lease 192.168.33.216 {
   starts 1 2016/04/11 19:59:04;
   ends 1 2016/04/11 20:04:04;
   cltt 1 2016/04/11 19:59:04;
@@ -195,7 +196,7 @@ lease 192.168.33.208 {
   set ddns-fwd-name = "util.office.maind.sk.";
   client-hostname "util";
 }
-lease 192.168.33.208 {
+lease 192.168.33.217 {
   starts 1 2016/04/11 20:01:14;
   ends 1 2016/04/11 20:06:14;
   cltt 1 2016/04/11 20:01:14;
@@ -208,7 +209,7 @@ lease 192.168.33.208 {
   set ddns-fwd-name = "util.office.maind.sk.";
   client-hostname "util";
 }
-lease 192.168.33.208 {
+lease 192.168.33.218 {
   starts 1 2016/04/11 20:03:43;
   ends 1 2016/04/11 20:08:43;
   cltt 1 2016/04/11 20:03:43;
@@ -221,7 +222,7 @@ lease 192.168.33.208 {
   set ddns-fwd-name = "util.office.maind.sk.";
   client-hostname "util";
 }
-lease 192.168.33.208 {
+lease 192.168.33.219 {
   starts 1 2016/04/11 20:05:48;
   ends 1 2016/04/11 20:10:48;
   cltt 1 2016/04/11 20:05:48;
@@ -234,7 +235,7 @@ lease 192.168.33.208 {
   set ddns-fwd-name = "util.office.maind.sk.";
   client-hostname "util";
 }
-lease 192.168.33.208 {
+lease 192.168.33.220 {
   starts 1 2016/04/11 20:08:12;
   ends 1 2016/04/11 20:13:12;
   cltt 1 2016/04/11 20:08:12;
@@ -247,7 +248,7 @@ lease 192.168.33.208 {
   set ddns-fwd-name = "util.office.maind.sk.";
   client-hostname "util";
 }
-lease 192.168.33.208 {
+lease 192.168.33.221 {
   starts 1 2016/04/11 20:10:06;
   ends 1 2016/04/11 20:15:06;
   cltt 1 2016/04/11 20:10:06;
@@ -260,7 +261,7 @@ lease 192.168.33.208 {
   set ddns-fwd-name = "util.office.maind.sk.";
   client-hostname "util";
 }
-lease 192.168.33.208 {
+lease 192.168.33.222 {
   starts 1 2016/04/11 20:12:29;
   ends 1 2016/04/11 20:17:29;
   cltt 1 2016/04/11 20:12:29;
@@ -273,7 +274,7 @@ lease 192.168.33.208 {
   set ddns-fwd-name = "util.office.maind.sk.";
   client-hostname "util";
 }
-lease 192.168.33.208 {
+lease 192.168.33.223 {
   starts 1 2016/04/11 20:14:42;
   ends 1 2016/04/11 20:19:42;
   cltt 1 2016/04/11 20:14:42;
@@ -286,7 +287,7 @@ lease 192.168.33.208 {
   set ddns-fwd-name = "util.office.maind.sk.";
   client-hostname "util";
 }
-lease 192.168.33.208 {
+lease 192.168.33.224 {
   starts 1 2016/04/11 20:16:46;
   ends 1 2016/04/11 20:21:46;
   cltt 1 2016/04/11 20:16:46;
@@ -299,7 +300,7 @@ lease 192.168.33.208 {
   set ddns-fwd-name = "util.office.maind.sk.";
   client-hostname "util";
 }
-lease 192.168.33.208 {
+lease 192.168.33.225 {
   starts 1 2016/04/11 20:19:02;
   ends 1 2016/04/11 20:24:02;
   cltt 1 2016/04/11 20:19:02;
@@ -312,7 +313,7 @@ lease 192.168.33.208 {
   set ddns-fwd-name = "util.office.maind.sk.";
   client-hostname "util";
 }
-lease 192.168.33.208 {
+lease 192.168.33.226 {
   starts 1 2016/04/11 20:21:08;
   ends 1 2016/04/11 20:26:08;
   cltt 1 2016/04/11 20:21:08;
@@ -325,7 +326,7 @@ lease 192.168.33.208 {
   set ddns-fwd-name = "util.office.maind.sk.";
   client-hostname "util";
 }
-lease 192.168.33.208 {
+lease 192.168.33.227 {
   starts 1 2016/04/11 20:23:06;
   ends 1 2016/04/11 20:28:06;
   cltt 1 2016/04/11 20:23:06;
@@ -338,7 +339,7 @@ lease 192.168.33.208 {
   set ddns-fwd-name = "util.office.maind.sk.";
   client-hostname "util";
 }
-lease 192.168.33.208 {
+lease 192.168.33.228 {
   starts 1 2016/04/11 20:25:15;
   ends 1 2016/04/11 20:30:15;
   cltt 1 2016/04/11 20:25:15;
@@ -351,7 +352,7 @@ lease 192.168.33.208 {
   set ddns-fwd-name = "util.office.maind.sk.";
   client-hostname "util";
 }
-lease 192.168.33.208 {
+lease 192.168.33.229 {
   starts 1 2016/04/11 20:27:22;
   ends 1 2016/04/11 20:32:22;
   cltt 1 2016/04/11 20:27:22;
@@ -364,7 +365,7 @@ lease 192.168.33.208 {
   set ddns-fwd-name = "util.office.maind.sk.";
   client-hostname "util";
 }
-lease 192.168.33.208 {
+lease 192.168.33.230 {
   starts 1 2016/04/11 20:29:39;
   ends 1 2016/04/11 20:34:39;
   cltt 1 2016/04/11 20:29:39;
@@ -377,7 +378,7 @@ lease 192.168.33.208 {
   set ddns-fwd-name = "util.office.maind.sk.";
   client-hostname "util";
 }
-lease 192.168.33.208 {
+lease 192.168.33.231 {
   starts 1 2016/04/11 20:31:48;
   ends 1 2016/04/11 20:36:48;
   cltt 1 2016/04/11 20:31:48;
@@ -390,7 +391,7 @@ lease 192.168.33.208 {
   set ddns-fwd-name = "util.office.maind.sk.";
   client-hostname "util";
 }
-lease 192.168.33.208 {
+lease 192.168.33.232 {
   starts 1 2016/04/11 20:34:08;
   ends 1 2016/04/11 20:39:08;
   cltt 1 2016/04/11 20:34:08;
@@ -403,9 +404,9 @@ lease 192.168.33.208 {
   set ddns-fwd-name = "util.office.maind.sk.";
   client-hostname "util";
 }
-lease 192.168.33.208 {
+lease 192.168.33.233 {
   starts 1 2016/04/11 20:36:15;
-  ends 1 2016/04/11 20:41:15;
+  ends never;
   cltt 1 2016/04/11 20:36:15;
   binding state active;
   next binding state free;

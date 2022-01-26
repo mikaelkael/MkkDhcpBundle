@@ -31,10 +31,15 @@ final class LeaseParser extends AbstractParser
                         case 'starts':
                         case 'ends':
                         case 'tstp':
+                        case 'tsfp':
+                        case 'atsfp':
                         case 'cltt':
-                            if ('never' != $list[0]) {
+                            if (!('ends' == $key && 'never' == $list[0])) {
                                 $lease->{'set'.\ucfirst($key)}(new \DateTime(\str_replace('/', '-', $list[1]).' '.$list[2]));
                             }
+                            break;
+                        case 'abandoned':
+                            $lease->setAbandoned(true);
                             break;
                         case 'uid':
                         case 'client-hostname':

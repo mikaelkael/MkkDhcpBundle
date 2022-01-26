@@ -23,6 +23,6 @@ final class ConfigExporter
             $result[] = $this->hostExporter->export($host, $depth);
         }
 
-        return implode("\n", $result);
+        return \implode("\n", $result);
     }
 }

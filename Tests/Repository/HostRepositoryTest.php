@@ -15,7 +15,7 @@ final class HostRepositoryTest extends WebTestCase
 
         $service = $container->get(HostRepository::class);
         $this->assertTrue($service instanceof HostRepository);
-        $this->assertCount(2, $service->getHosts());
+        $this->assertCount(4, $service->getHosts());
     }
 
     public function testInvalidHostFileUri(): void

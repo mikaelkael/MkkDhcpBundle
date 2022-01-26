@@ -31,7 +31,8 @@ final class HostParser extends AbstractParser
                             $host->setHardware((new Hardware())->setType($list[0])->setAddress($list[1]));
                             break;
                         case 'fixed-address':
-                            $host->setFixedAddress($list[0]);
+                            $addresses = \explode(',', \implode('', $list));
+                            $host->setFixedAddress($addresses);
                             break;
                         case 'ddns-hostname':
                             $host->setDdnsHostname(\trim($list[0], "\"\'"));

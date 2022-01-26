@@ -15,7 +15,7 @@ final class LeaseRepositoryTest extends WebTestCase
 
         $service = $container->get(LeaseRepository::class);
         $this->assertTrue($service instanceof LeaseRepository);
-        $this->assertCount(10, $service->getLeases());
-        $this->assertCount(1, $service->getActiveFreeLeases());
+        $this->assertCount(34, $service->getLeases());
+        $this->assertCount(25, $service->getActiveFreeLeases());
     }
 }

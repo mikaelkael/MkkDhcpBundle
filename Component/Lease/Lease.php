@@ -101,6 +101,23 @@ final class Lease
      */
     private $dynamicBootp;
 
+    /**
+     * @var bool
+     */
+    private $abandoned;
+
+    public function isAbandoned(): bool
+    {
+        return $this->abandoned;
+    }
+
+    public function setAbandoned(bool $abandoned): self
+    {
+        $this->abandoned = $abandoned;
+
+        return $this;
+    }
+
     public function isDynamicBootp(): bool
     {
         return $this->dynamicBootp;
