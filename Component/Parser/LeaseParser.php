@@ -33,7 +33,9 @@ class LeaseParser extends AbstractParser
                         case 'ends':
                         case 'tstp':
                         case 'cltt':
-                            $lease->{'set' . ucfirst($key)}(new \DateTime(str_replace('/', '-', $list[1]) . ' ' . $list[2]));
+                            if ($list[0] != 'never') {
+                                $lease->{'set' . ucfirst($key)}(new \DateTime(str_replace('/', '-', $list[1]) . ' ' . $list[2]));
+                            }
                             break;
                         case 'uid':
                         case 'client-hostname':
