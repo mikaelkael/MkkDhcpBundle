@@ -34,7 +34,7 @@ final class LeaseParser extends AbstractParser
                         case 'tsfp':
                         case 'atsfp':
                         case 'cltt':
-                            if (!('ends' == $key && 'never' == $list[0])) {
+                            if (!(in_array($key, ['ends', 'tstp']) && 'never' == $list[0])) {
                                 $lease->{'set'.\ucfirst($key)}(new \DateTime(\str_replace('/', '-', $list[1]).' '.$list[2]));
                             }
                             break;
