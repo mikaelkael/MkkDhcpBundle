@@ -8,9 +8,9 @@ use Mkk\DhcpBundle\Component\Parser\LeaseParser;
 
 final class LeaseRepository extends AbstractFileRepository
 {
-    public function __construct(LeaseParser $parser, $leasesFileUri)
+    public function __construct(LeaseParser $parser, $leasesFileUri, $throwExceptionOnParseError)
     {
-        parent::__construct($parser, $leasesFileUri);
+        parent::__construct($parser, $leasesFileUri, $throwExceptionOnParseError);
     }
 
     /**

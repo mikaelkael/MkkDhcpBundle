@@ -64,6 +64,6 @@ final class LeaseFileTest extends TestCase
         $lease->setIp(new Ip('1.1.3.4'));
         $leaseFile->addLease($lease);
 
-        $this->assertEquals(['1.1.3.4', '1.2.3.4', '2.3.4.5'], array_keys($leaseFile->getLeases()));
+        $this->assertEquals(['1.1.3.4', '1.2.3.4', '2.3.4.5'], \array_keys($leaseFile->getLeases()));
     }
 }

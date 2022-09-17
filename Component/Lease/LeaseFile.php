@@ -17,7 +17,7 @@ final class LeaseFile implements \ArrayAccess, \Countable
         return $this->leases;
     }
 
-    public function count()
+    public function count(): int
     {
         return \count($this->leases);
     }
@@ -31,7 +31,7 @@ final class LeaseFile implements \ArrayAccess, \Countable
             $address = $address->getAddress();
         }
         if (\is_string($address)) {
-            return array_key_exists($address, $this->leases);
+            return \array_key_exists($address, $this->leases);
         }
         throw new \InvalidArgumentException(\sprintf("You should access to lease file list by string address or Ip object ('%s' given)", \gettype($address)));
     }
@@ -88,13 +88,13 @@ final class LeaseFile implements \ArrayAccess, \Countable
     /**
      * @throws \InvalidArgumentException
      */
-    public function offsetSet($offset, $lease): self
+    public function offsetSet($offset, $lease): void
     {
         if (!($lease instanceof Lease)) {
             throw new \InvalidArgumentException(\sprintf("You should append lease to lease file as a Lease object ('%s' given)", \gettype($lease)));
         }
 
-        return $this->addLease($lease);
+        $this->addLease($lease);
     }
 
     /**
@@ -121,11 +121,12 @@ final class LeaseFile implements \ArrayAccess, \Countable
     private function sort(): void
     {
         \uksort($this->leases, function ($address1, $address2) {
-            $ip1 = ip2long($address1);
-            $ip2 = ip2long($address2);
+            $ip1 = \ip2long($address1);
+            $ip2 = \ip2long($address2);
             if ($ip1 !== $ip2) {
                 return $ip1 - $ip2;
             }
+
             return 0;
         });
     }

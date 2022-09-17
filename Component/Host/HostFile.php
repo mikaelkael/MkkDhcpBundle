@@ -17,7 +17,7 @@ final class HostFile implements \ArrayAccess, \Countable
         return $this->hosts;
     }
 
-    public function count()
+    public function count(): int
     {
         return \count($this->hosts);
     }
@@ -73,13 +73,13 @@ final class HostFile implements \ArrayAccess, \Countable
     /**
      * @throws \InvalidArgumentException
      */
-    public function offsetSet($offset, $host): self
+    public function offsetSet($offset, $host): void
     {
         if (!($host instanceof Host)) {
             throw new \InvalidArgumentException(\sprintf("You should append host to host file as a Host object ('%s' given)", \gettype($host)));
         }
 
-        return $this->addHost($host);
+        $this->addHost($host);
     }
 
     public function removeHost(string $hostName): self

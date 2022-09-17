@@ -106,6 +106,11 @@ final class Lease
      */
     private $abandoned;
 
+    /**
+     * @var string
+     */
+    private $pxetype;
+
     public function isAbandoned(): bool
     {
         return $this->abandoned;
@@ -352,6 +357,18 @@ final class Lease
     public function setUid(string $uid): self
     {
         $this->uid = $uid;
+
+        return $this;
+    }
+
+    public function getPxetype(): string
+    {
+        return $this->pxetype;
+    }
+
+    public function setPxetype(string $pxetype): self
+    {
+        $this->pxetype = $pxetype;
 
         return $this;
     }

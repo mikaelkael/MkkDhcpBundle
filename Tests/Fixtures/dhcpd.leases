@@ -418,3 +418,18 @@ lease 192.168.33.233 {
   set ddns-fwd-name = "util.office.maind.sk.";
   client-hostname "util";
 }
+lease 192.168.33.234 {
+  starts 1 2016/04/11 20:36:15;
+  ends never;
+  tstp never;
+  cltt 1 2016/04/11 20:36:15;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 00:16:3e:6e:17:a3;
+  set ddns-rev-name = "208.33.168.192.in-addr.arpa.";
+  set ddns-txt = "007fe1ccf0fa27da04b2359f0de0792f01";
+  set ddns-fwd-name = "util.office.maind.sk.";
+  set pxetype = "PXE:INFO:003";
+  client-hostname "util";
+}

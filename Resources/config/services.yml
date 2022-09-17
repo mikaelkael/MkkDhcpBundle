@@ -11,6 +11,7 @@ services:
   Mkk\DhcpBundle\Repository\LeaseRepository:
     arguments:
       $leasesFileUri: "%mkk_dhcp.leases.file%"
+      $throwExceptionOnParseError: "%mkk_dhcp.leases.throw_exception_on_parse_error%"
     public: true
 
   Mkk\DhcpBundle\Component\Parser\HostParser: ~

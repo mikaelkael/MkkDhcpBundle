@@ -17,6 +17,7 @@ final class Configuration implements ConfigurationInterface
                 ->arrayNode('leases')
                     ->children()
                         ->scalarNode('file')->cannotBeEmpty()->end()
+                        ->scalarNode('throw_exception_on_parse_error')->defaultValue(true)->end()
                     ->end()
                 ->end()
                 ->arrayNode('hosts')

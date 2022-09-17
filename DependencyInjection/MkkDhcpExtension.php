@@ -16,6 +16,7 @@ final class MkkDhcpExtension extends Extension
 
         $container->setParameter('mkk_dhcp.hosts.file', $config['hosts']['file']);
         $container->setParameter('mkk_dhcp.leases.file', $config['leases']['file']);
+        $container->setParameter('mkk_dhcp.leases.throw_exception_on_parse_error', $config['leases']['throw_exception_on_parse_error']);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');

@@ -19,10 +19,13 @@ abstract class AbstractFileRepository
 
     private $parsedContent = null;
 
-    public function __construct(AbstractParser $parser, string $fileUri)
+    protected $throwExceptionOnParseError = true;
+
+    public function __construct(AbstractParser $parser, string $fileUri, bool $throwExceptionOnParseError = true)
     {
         $this->parser = $parser;
         $this->setFileUri($fileUri);
+        $this->throwExceptionOnParseError = $throwExceptionOnParseError;
     }
 
     public function setFileUri(string $fileUri): self
@@ -52,7 +55,7 @@ abstract class AbstractFileRepository
             if (false === $content) {
                 throw new \InvalidArgumentException(\sprintf("can't read file '%s'", $this->fileUri));
             }
-            $this->parsedContent = $this->parser->parse($content);
+            $this->parsedContent = $this->parser->setThrowExceptionOnParseError($this->throwExceptionOnParseError)->parse($content);
         }
 
         return $this->parsedContent;

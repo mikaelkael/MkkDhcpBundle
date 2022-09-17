@@ -34,7 +34,7 @@ final class LeaseParser extends AbstractParser
                         case 'tsfp':
                         case 'atsfp':
                         case 'cltt':
-                            if (!(in_array($key, ['ends', 'tstp']) && 'never' == $list[0])) {
+                            if (!(\in_array($key, ['ends', 'tstp']) && 'never' == $list[0])) {
                                 $lease->{'set'.\ucfirst($key)}(new \DateTime(\str_replace('/', '-', $list[1]).' '.$list[2]));
                             }
                             break;
@@ -48,8 +48,16 @@ final class LeaseParser extends AbstractParser
                             $lease->{'set'.$u->camel()->title()}(isset($list[0]) ? \trim($list[0], '"') : null);
                             break;
                         case 'set':
-                            $u = new UnicodeString($list[0]);
-                            $lease->{'set'.$u->camel()->title()}(\trim($list[2], '"'));
+                            $set = \array_shift($list);
+                            $u = new UnicodeString($set);
+                            $method = 'set'.$u->camel()->title();
+                            if (\method_exists($lease, $method)) {
+                                $lease->$method(\trim($list[1], '"'));
+                            } else {
+                                if ($this->throwExceptionOnParseError) {
+                                    throw new FormatException(\sprintf("Unknown configuration: '%s %s' (with parameters: '%s')", $key, $set, $list[1]));
+                                }
+                            }
                             break;
                         case 'binding':
                             $lease->setBindingState($list[1]);
@@ -64,7 +72,9 @@ final class LeaseParser extends AbstractParser
                             $lease->setHardware((new Hardware())->setType($list[0])->setAddress($list[1]));
                             break;
                         default:
-                            throw new FormatException(\sprintf("Unknown configuration: '%s' (with parameters: '%s')", $key, \implode(', ', $list)));
+                            if ($this->throwExceptionOnParseError) {
+                                throw new FormatException(\sprintf("Unknown configuration: '%s' (with parameters: '%s')", $key, \implode(', ', $list)));
+                            }
                     }
                 }
             }
