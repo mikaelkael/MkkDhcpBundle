@@ -77,7 +77,7 @@ jobs:
         - run: composer config minimum-stability dev
         - run: composer config prefer-stable true
           if: matrix.symfony
-        - run: composer remove vimeo/psalm
+        - run: composer remove vimeo/psalm --dev --no-interaction --no-progress --ansi
           if: matrix.symfony == '5.3.*'
         - run: composer update --no-interaction --no-progress --ansi ${{ matrix.composer_option }}
         - name: Execute tests (Unit and Feature tests) via PHPUnit
