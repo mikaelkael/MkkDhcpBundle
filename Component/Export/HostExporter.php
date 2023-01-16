@@ -9,7 +9,6 @@ final class HostExporter
 {
     public function export(Host $host, int $depth = 0): string
     {
-        $depth = (int) $depth;
         $result = \str_repeat("\t", $depth).'host '.$host->getName()." {\n";
         $result .= \str_repeat("\t", $depth + 1).$this->exportHardware($host->getHardware());
         $result .= \str_repeat("\t", $depth + 1).'fixed-address '.\implode(', ', $host->getFixedAddress()).";\n";

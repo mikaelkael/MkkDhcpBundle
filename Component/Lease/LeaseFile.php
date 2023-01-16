@@ -39,23 +39,23 @@ final class LeaseFile implements \ArrayAccess, \Countable
     /**
      * @throws \InvalidArgumentException
      */
-    public function offsetExists($address): bool
+    public function offsetExists($offset): bool
     {
-        return $this->hasLease($address);
+        return $this->hasLease($offset);
     }
 
     /**
      * @throws \InvalidArgumentException
      */
-    public function offsetGet($address): Lease
+    public function offsetGet($offset): Lease
     {
-        if ($address instanceof Ip) {
-            $address = $address->getAddress();
+        if ($offset instanceof Ip) {
+            $offset = $offset->getAddress();
         }
-        if (\is_string($address)) {
-            return $this->getLease($address);
+        if (\is_string($offset)) {
+            return $this->getLease($offset);
         }
-        throw new \InvalidArgumentException(\sprintf("You should access to lease file list by string address or Ip object ('%s' given)", \gettype($address)));
+        throw new \InvalidArgumentException(\sprintf("You should access to lease file list by string address or Ip object ('%s' given)", \gettype($offset)));
     }
 
     /**
@@ -88,13 +88,13 @@ final class LeaseFile implements \ArrayAccess, \Countable
     /**
      * @throws \InvalidArgumentException
      */
-    public function offsetSet($offset, $lease): void
+    public function offsetSet($offset, $value): void
     {
-        if (!($lease instanceof Lease)) {
-            throw new \InvalidArgumentException(\sprintf("You should append lease to lease file as a Lease object ('%s' given)", \gettype($lease)));
+        if (!($value instanceof Lease)) {
+            throw new \InvalidArgumentException(\sprintf("You should append lease to lease file as a Lease object ('%s' given)", \gettype($value)));
         }
 
-        $this->addLease($lease);
+        $this->addLease($value);
     }
 
     /**
@@ -113,9 +113,9 @@ final class LeaseFile implements \ArrayAccess, \Countable
         return $this;
     }
 
-    public function offsetUnset($adresse): void
+    public function offsetUnset($offset): void
     {
-        $this->removeLease($adresse);
+        $this->removeLease($offset);
     }
 
     private function sort(): void

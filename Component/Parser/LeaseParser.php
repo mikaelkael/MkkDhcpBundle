@@ -20,12 +20,12 @@ final class LeaseParser extends AbstractParser
             return $leaseFile;
         }
 
-        \preg_match_all('/\s*lease\s*"?(([0-9]{1,3}\.){3}[0-9]{1,3})"?\s*\{(.*?)\}/sm', $source, $matches);
+        \preg_match_all('/\s*lease\s*"?(([0-9]{1,3}\.){3}[0-9]{1,3})"?\s*\{(.*?)}/sm', $source, $matches);
         foreach ($matches[3] as $k => $params) {
             $lease = new Lease($matches[1][$k]);
             foreach (\explode(';', $params) as $p) {
                 if ('' != \trim($p)) {
-                    $list = \preg_split('~(?<!\\\\)(?:\\\\{2})*"[^"\\\\]*(?:\\\\.[^"\\\\]*)*"(*SKIP)(*F)|\s+~s', \trim($p));
+                    $list = \preg_split('~(?<!\\\\)(?:\\\\{2})*"[^"\\\\]*(?:\\\\.[^"\\\\]*)*"(SKIP)(F)|\s+~s', \trim($p));
                     $key = \array_shift($list);
                     switch ($key) {
                         case 'starts':

@@ -19,12 +19,12 @@ final class HostParser extends AbstractParser
             return $hostFile;
         }
 
-        \preg_match_all('/\s*host\s*"?([A-Za-z0-9\-\_]*)"?\s*\{(.*?)\}/sm', $source, $matches);
+        \preg_match_all('/\s*host\s*"?([A-Za-z0-9\-_]*)"?\s*\{(.*?)}/sm', $source, $matches);
         foreach ($matches[2] as $k => $params) {
             $host = new Host($matches[1][$k]);
             foreach (\explode(';', $params) as $p) {
                 if ('' != \trim($p)) {
-                    $list = \preg_split('~(?<!\\\\)(?:\\\\{2})*"[^"\\\\]*(?:\\\\.[^"\\\\]*)*"(*SKIP)(*F)|\s+~s', \trim($p));
+                    $list = \preg_split('~(?<!\\\\)(?:\\\\{2})*"[^"\\\\]*(?:\\\\.[^"\\\\]*)*"(SKIP)(F)|\s+~s', \trim($p));
                     $key = \array_shift($list);
                     switch ($key) {
                         case 'hardware':

@@ -30,13 +30,13 @@ final class HostFile implements \ArrayAccess, \Countable
     /**
      * @throws \InvalidArgumentException
      */
-    public function offsetExists($hostName): bool
+    public function offsetExists($offset): bool
     {
-        if (!\is_string($hostName)) {
-            throw new \InvalidArgumentException(\sprintf("You should access to host file list by string name of an host ('%s' given)", \gettype($hostName)));
+        if (!\is_string($offset)) {
+            throw new \InvalidArgumentException(\sprintf("You should access to host file list by string name of an host ('%s' given)", \gettype($offset)));
         }
 
-        return $this->hasHost($hostName);
+        return $this->hasHost($offset);
     }
 
     /**
@@ -54,13 +54,13 @@ final class HostFile implements \ArrayAccess, \Countable
     /**
      * @throws \InvalidArgumentException
      */
-    public function offsetGet($hostName): Host
+    public function offsetGet($offset): Host
     {
-        if (!\is_string($hostName)) {
-            throw new \InvalidArgumentException(\sprintf("You should access to host file list by string name of an host ('%s' given)", \gettype($hostName)));
+        if (!\is_string($offset)) {
+            throw new \InvalidArgumentException(\sprintf("You should access to host file list by string name of an host ('%s' given)", \gettype($offset)));
         }
 
-        return $this->getHost($hostName);
+        return $this->getHost($offset);
     }
 
     public function addHost(Host $host): self
@@ -73,20 +73,17 @@ final class HostFile implements \ArrayAccess, \Countable
     /**
      * @throws \InvalidArgumentException
      */
-    public function offsetSet($offset, $host): void
+    public function offsetSet($offset, $value): void
     {
-        if (!($host instanceof Host)) {
-            throw new \InvalidArgumentException(\sprintf("You should append host to host file as a Host object ('%s' given)", \gettype($host)));
+        if (!($value instanceof Host)) {
+            throw new \InvalidArgumentException(\sprintf("You should append host to host file as a Host object ('%s' given)", \gettype($value)));
         }
 
-        $this->addHost($host);
+        $this->addHost($value);
     }
 
     public function removeHost(string $hostName): self
     {
-        if (!\is_string($hostName)) {
-            throw new \InvalidArgumentException(\sprintf("You should access to host file list by string name of an host ('%s' given)", \gettype($hostName)));
-        }
         unset($this->hosts[$hostName]);
 
         return $this;
@@ -95,11 +92,11 @@ final class HostFile implements \ArrayAccess, \Countable
     /**
      * @throws \InvalidArgumentException
      */
-    public function offsetUnset($hostName): void
+    public function offsetUnset($offset): void
     {
-        if (!\is_string($hostName)) {
+        if (!\is_string($offset)) {
             throw new \InvalidArgumentException();
         }
-        $this->removeHost($hostName);
+        $this->removeHost($offset);
     }
 }
