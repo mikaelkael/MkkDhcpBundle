@@ -58,10 +58,10 @@ jobs:
       name: PHP ${{ matrix.php }} tests (${{ matrix.description }})
       steps:
         - name: Checkout
-          uses: actions/checkout@v2
+          uses: actions/checkout@v3
         - name: Cache Composer packages
           id: composer-cache
-          uses: actions/cache@v2
+          uses: actions/cache@v3
           with:
             path: ~/.composer/cache/files
             key: ${{ matrix.php }}-${{ matrix.symfony }}-${{ matrix.composer_option }} 
@@ -78,6 +78,8 @@ jobs:
         - run: composer config minimum-stability dev
         - run: composer config prefer-stable true
           if: matrix.symfony
+        - run: composer remove vimeo/psalm
+          if: matrix.symfony == '5.3.*'
         - run: composer update --no-interaction --no-progress --ansi ${{ matrix.composer_option }}
         - name: Execute tests (Unit and Feature tests) via PHPUnit
           run: vendor/bin/phpunit
