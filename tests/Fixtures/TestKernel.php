@@ -25,7 +25,7 @@ final class TestKernel extends Kernel
 
     public function getCacheDir(): string
     {
-        return $this->getProjectDir().'/Tests/Fixtures/cache/'.$this->environment;
+        return $this->getProjectDir().'/var/tests/cache/'.$this->environment;
     }
 }
 

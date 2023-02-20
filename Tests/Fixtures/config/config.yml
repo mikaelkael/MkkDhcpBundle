@@ -1,8 +1,0 @@
-framework:
-  secret: 'test'
-
-mkk_dhcp:
-  hosts:
-    file: 'file://%kernel.project_dir%/Tests/Fixtures/hosts.conf'
-  leases:
-    file: 'file://%kernel.project_dir%/Tests/Fixtures/dhcpd.leases'

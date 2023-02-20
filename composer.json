@@ -22,9 +22,13 @@
     "symfony/yaml": "^5.0|^6.0",
     "vimeo/psalm": "^4.29"
   },
+  "scripts": {
+    "test": "vendor/bin/phpunit"
+  },
   "autoload": {
     "psr-4": {
-      "Mkk\\DhcpBundle\\": ""
+      "Mkk\\DhcpBundle\\": "src",
+      "Mkk\\DhcpBundle\\Tests\\": "tests"
     }
   }
 }

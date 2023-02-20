@@ -1,6 +1,4 @@
 composer.lock
 vendor/*
 phpunit.xml
-Tests/Fixtures/cache
-
-
+var/*
