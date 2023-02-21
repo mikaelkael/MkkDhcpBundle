@@ -4,6 +4,7 @@ namespace Mkk\DhcpBundle\Component\Host;
 
 final class Host
 {
+    const HOSTNAME_REGEX = '[A-Za-z0-9\-_]*';
     /**
      * @var ?string
      */
@@ -26,7 +27,9 @@ final class Host
 
     public function __construct(string $name = null)
     {
-        $this->name = $name;
+        if (null !== $name) {
+            $this->setName($name);
+        }
     }
 
     public function getName(): ?string
@@ -36,6 +39,9 @@ final class Host
 
     public function setName(string $name): self
     {
+        if (!preg_match('#^'.self::HOSTNAME_REGEX.'$#', $name)) {
+            throw new \InvalidArgumentException('Hostname contains invalid(s) character(s)');
+        }
         $this->name = $name;
 
         return $this;

@@ -19,7 +19,7 @@ final class HostParser extends AbstractParser
             return $hostFile;
         }
 
-        \preg_match_all('/\s*host\s*"?([A-Za-z0-9\-_]*)"?\s*\{(.*?)}/sm', $source, $matches);
+        \preg_match_all('/\s*host\s*"?('.Host::HOSTNAME_REGEX.')"?\s*\{(.*?)}/sm', $source, $matches);
         foreach ($matches[2] as $k => $params) {
             $host = new Host($matches[1][$k]);
             foreach (\explode(';', $params) as $p) {
