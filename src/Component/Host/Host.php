@@ -4,7 +4,7 @@ namespace Mkk\DhcpBundle\Component\Host;
 
 final class Host
 {
-    const HOSTNAME_REGEX = '[A-Za-z0-9\-_]*';
+    const HOSTNAME_REGEX = '[a-zA-Z0-9]([a-zA-Z0-9\-_]*[a-zA-Z0-9])?(\.[a-zA-Z0-9]([a-zA-Z0-9\-_]*[a-zA-Z0-9])?)*';
     /**
      * @var ?string
      */
